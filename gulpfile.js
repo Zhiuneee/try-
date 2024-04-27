@@ -1,21 +1,23 @@
-const gulp = require('gulp')
+import { createRequire } from 'module';
+import gulp from 'gulp';
+import autoprefixer from 'gulp-autoprefixer';
+import {deleteAsync} from 'del';
+const require = createRequire(import.meta.url)
 const minifycss = require('gulp-clean-css')
 const uglify = require('gulp-uglify')
 const htmlmin = require('gulp-htmlmin')
 const cssnano = require('gulp-cssnano')
 const htmlclean = require('gulp-htmlclean')
-const del = require('del')
 const babel = require('gulp-babel')
-const autoprefixer = require('gulp-autoprefixer')
 const connect = require('gulp-connect')
 const pug = require('gulp-pug')
-const sass = require('gulp-sass')
+const sass = require('gulp-sass')(require('sass'))
 sass.compiler = require('node-sass')
 
 const config = require('./config.json')
 
 gulp.task('clean', function () {
-	return del(['./dist/css/', './dist/js/'])
+	return deleteAsync(['./dist/css/', './dist/js/'])
 })
 
 gulp.task('css', function () {
@@ -23,7 +25,7 @@ gulp.task('css', function () {
 		.src('./src/css/*.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(minifycss({ compatibility: 'ie8' }))
-		.pipe(autoprefixer({ browsers: ['last 2 version'] }))
+		.pipe(autoprefixer({ overrideBrowserslist: ['last 2 version'] }))
 		.pipe(cssnano({ reduceIdents: false }))
 		.pipe(gulp.dest('./dist/css'))
 })
