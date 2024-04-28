@@ -1,7 +1,10 @@
 import { createRequire } from 'module';
 import gulp from 'gulp';
 import autoprefixer from 'gulp-autoprefixer';
-import {deleteAsync} from 'del';
+import { deleteAsync } from 'del';
+import dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+const sass = gulpSass(dartSass)
 const require = createRequire(import.meta.url)
 const minifycss = require('gulp-clean-css')
 const uglify = require('gulp-uglify')
@@ -11,13 +14,12 @@ const htmlclean = require('gulp-htmlclean')
 const babel = require('gulp-babel')
 const connect = require('gulp-connect')
 const pug = require('gulp-pug')
-const sass = require('gulp-sass')(require('sass'))
 sass.compiler = require('node-sass')
 
 const config = require('./config.json')
 
 gulp.task('clean', function () {
-	return deleteAsync(['./dist/css/', './dist/js/'])
+	return deleteAsync(['./dist/**/*'])
 })
 
 gulp.task('css', function () {
@@ -55,7 +57,7 @@ gulp.task('pug', function () {
 
 gulp.task('assets', function () {
 	return gulp
-		.src(['./src/assets/**/*'])
+		.src(['./src/assets/**/*'],{encoding: false})
 		.pipe(gulp.dest('./dist/assets'));
 })
 
