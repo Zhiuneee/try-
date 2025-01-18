@@ -1,11 +1,11 @@
 {
 	"head": {
-		"title": "一个坏掉的番茄",
-		"description": "Author:SimonMa,Category:Personal Blog",
+		"title": "Zhiuneee Paige",
+		"description": "Author: Zhiuneee,Category:Personal Blog",
 		"favicon": "favicon.ico"
 	},
 	"intro": {
-		"title": "Simon Ma",
+		"title": "Zhiano Enkrateis",
 		"subtitle": "Front back left right end engineer",
 		"enter": "enter",
 		"supportAuthor": true,
@@ -31,7 +31,7 @@
 				"text": "About"
 			},
 			"third": {
-				"href": "mailto:simon@tomotoes.com",
+				"href": "mailto:zhiunee@gmail.com",
 				"icon": "email",
 				"text": "Email"
 			},
