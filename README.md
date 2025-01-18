@@ -11,9 +11,9 @@
 
 ## Introduction
 
-> `一个坏掉的番茄`  home page.
+> `Zhiunee`  home page.
 
-[Online browsing](http://tomotoes.com)
+[Online browsing](http://zhiunee.github.io)
 
 Do you want to install such a cool homepage for your website?
 
